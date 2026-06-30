@@ -6,138 +6,146 @@
 <title>SvrintART</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-    font-family: Georgia, 'Times New Roman', serif;
-    background:#050505;
-    color:white;
+  font-family: Georgia, "Times New Roman", serif;
+  background:#050505;
+  color:white;
 }
 
 .hero{
-    min-height:100vh;
-    background:
-        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.65)),
-        url("hero.png") center center / cover no-repeat;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:40px 20px;
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.72)),
+    url("hero.png") center center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:120px 24px 60px;
 }
 
 nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    padding:28px 6%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    z-index:10;
-    background:rgba(0,0,0,.35);
-    backdrop-filter:blur(8px);
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  padding:26px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(0,0,0,.42);
+  backdrop-filter:blur(10px);
+  z-index:10;
 }
 
 .logo{
-    font-size:34px;
-    letter-spacing:1px;
+  font-size:32px;
+  letter-spacing:1px;
 }
 
-.logo span,
-.gold{
-    color:#d6a22a;
-}
+.gold{color:#d6a22a}
 
 .menu a{
-    color:white;
-    text-decoration:none;
-    margin-left:32px;
-    font-family:Arial, sans-serif;
-    font-size:13px;
-    letter-spacing:3px;
+  color:white;
+  text-decoration:none;
+  margin-left:34px;
+  font-family:Arial, sans-serif;
+  font-size:12px;
+  letter-spacing:3px;
 }
 
 .content{
-    max-width:1000px;
+  max-width:1050px;
 }
 
 h1{
-    font-size:110px;
-    font-weight:300;
-    line-height:1;
-    margin-bottom:25px;
+  font-size:118px;
+  font-weight:300;
+  line-height:1;
+  margin-bottom:18px;
 }
 
-.subtitle{
-    font-family:Arial, sans-serif;
-    font-size:18px;
-    letter-spacing:6px;
-    margin-bottom:45px;
+.author{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.role{
+  font-family:Arial, sans-serif;
+  font-size:14px;
+  letter-spacing:5px;
+  color:#d6a22a;
+  margin-bottom:46px;
+}
+
+.quote{
+  max-width:900px;
+  margin:0 auto 42px;
+  font-size:25px;
+  line-height:1.45;
+  font-style:italic;
+}
+
+.statement{
+  font-size:34px;
+  margin-bottom:12px;
+}
+
+.substatement{
+  font-family:Arial, sans-serif;
+  font-size:15px;
+  letter-spacing:4px;
+  margin-bottom:42px;
+  color:#ddd;
 }
 
 .buttons{
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    flex-wrap:wrap;
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  flex-wrap:wrap;
 }
 
 .btn{
-    padding:17px 38px;
-    text-decoration:none;
-    font-family:Arial, sans-serif;
-    font-size:13px;
-    letter-spacing:3px;
-    border:1px solid #d6a22a;
+  padding:17px 38px;
+  text-decoration:none;
+  font-family:Arial, sans-serif;
+  font-size:12px;
+  letter-spacing:3px;
+  border:1px solid #d6a22a;
 }
 
 .btn.dark{
-    color:white;
-    background:rgba(0,0,0,.25);
+  color:white;
+  background:rgba(0,0,0,.25);
 }
 
 .btn.goldbtn{
-    background:#d6a22a;
-    color:black;
-    font-weight:bold;
+  background:#d6a22a;
+  color:black;
+  font-weight:bold;
 }
 
 footer{
-    position:fixed;
-    bottom:22px;
-    width:100%;
-    text-align:center;
-    color:#ddd;
-    font-family:Arial, sans-serif;
-    font-size:12px;
-    letter-spacing:4px;
+  position:fixed;
+  bottom:20px;
+  width:100%;
+  text-align:center;
+  font-family:Arial, sans-serif;
+  font-size:11px;
+  letter-spacing:4px;
+  color:#ccc;
 }
 
-@media(max-width:700px){
-    nav{
-        flex-direction:column;
-        gap:18px;
-    }
-
-    .menu a{
-        margin:0 10px;
-        font-size:11px;
-    }
-
-    h1{
-        font-size:58px;
-    }
-
-    .subtitle{
-        font-size:12px;
-        letter-spacing:3px;
-    }
+@media(max-width:750px){
+  nav{flex-direction:column;gap:16px}
+  .menu a{margin:0 8px;font-size:10px}
+  h1{font-size:62px}
+  .author{font-size:22px}
+  .quote{font-size:18px}
+  .statement{font-size:24px}
 }
 </style>
 </head>
@@ -145,24 +153,36 @@ footer{
 <body>
 
 <nav>
-    <div class="logo">Svrint<span>ART</span></div>
-    <div class="menu">
-        <a href="#">HOME</a>
-        <a href="#">GALLERY</a>
-        <a href="#">ABOUT</a>
-        <a href="#">CONTACT</a>
-    </div>
+  <div class="logo">Svrint<span class="gold">ART</span></div>
+  <div class="menu">
+    <a href="#">HOME</a>
+    <a href="#">GALLERY</a>
+    <a href="#">MANIFESTO</a>
+    <a href="#">ABOUT</a>
+    <a href="#">CONTACT</a>
+  </div>
 </nav>
 
 <section class="hero">
-    <div class="content">
-        <h1>Svrint<span class="gold">ART</span></h1>
-        <div class="subtitle">DIGITAL SURREAL ART • FINE ART PRINTS • INTERIOR DESIGN</div>
-        <div class="buttons">
-            <a href="#" class="btn dark">VIEW GALLERY</a>
-            <a href="#" class="btn goldbtn">ABOUT SVRINTART</a>
-        </div>
+  <div class="content">
+    <h1>Svrint<span class="gold">ART</span></h1>
+
+    <div class="author">Pio Cecchini</div>
+    <div class="role">AESTHETICS EXPLORER</div>
+
+    <div class="quote">
+      “The Soul said to its Image:<br>
+      I will break through the walls of your doorless room; your fate is my own.”
     </div>
+
+    <div class="statement">The line is not drawn. It is provoked.</div>
+    <div class="substatement">PAINTING GENERATED BY MAGNETISM, FRICTION AND CONTROLLED CHAOS</div>
+
+    <div class="buttons">
+      <a href="#" class="btn dark">EXPLORE THE GALLERY</a>
+      <a href="#" class="btn goldbtn">READ THE MANIFESTO</a>
+    </div>
+  </div>
 </section>
 
 <footer>© 2026 SvrintART</footer>
