@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,42 +13,72 @@
 }
 
 body{
-    font-family:Georgia, serif;
+    font-family: Georgia, 'Times New Roman', serif;
+    background:#050505;
     color:white;
-    background:#000;
 }
 
 .hero{
-    height:100vh;
+    min-height:100vh;
     background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.55)),
-    url("q.png") center center/cover no-repeat;
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.65)),
+        url("hero.png") center center / cover no-repeat;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     text-align:center;
+    padding:40px 20px;
 }
 
-.content{
-    max-width:900px;
-    padding:20px;
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:28px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:10;
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(8px);
 }
 
-h1{
-    font-size:96px;
-    font-weight:300;
-    letter-spacing:2px;
-    margin-bottom:20px;
+.logo{
+    font-size:34px;
+    letter-spacing:1px;
 }
 
+.logo span,
 .gold{
     color:#d6a22a;
 }
 
+.menu a{
+    color:white;
+    text-decoration:none;
+    margin-left:32px;
+    font-family:Arial, sans-serif;
+    font-size:13px;
+    letter-spacing:3px;
+}
+
+.content{
+    max-width:1000px;
+}
+
+h1{
+    font-size:110px;
+    font-weight:300;
+    line-height:1;
+    margin-bottom:25px;
+}
+
 .subtitle{
-    font-size:24px;
-    letter-spacing:4px;
-    margin-bottom:50px;
+    font-family:Arial, sans-serif;
+    font-size:18px;
+    letter-spacing:6px;
+    margin-bottom:45px;
 }
 
 .buttons{
@@ -58,71 +88,84 @@ h1{
     flex-wrap:wrap;
 }
 
-a{
+.btn{
+    padding:17px 38px;
     text-decoration:none;
+    font-family:Arial, sans-serif;
+    font-size:13px;
+    letter-spacing:3px;
+    border:1px solid #d6a22a;
 }
 
-.btn1{
+.btn.dark{
     color:white;
-    border:2px solid #d6a22a;
-    padding:18px 42px;
-    transition:.3s;
+    background:rgba(0,0,0,.25);
 }
 
-.btn1:hover{
+.btn.goldbtn{
     background:#d6a22a;
     color:black;
-}
-
-.btn2{
-    background:#d6a22a;
-    color:black;
-    padding:18px 42px;
     font-weight:bold;
-    transition:.3s;
-}
-
-.btn2:hover{
-    background:#f2bf47;
 }
 
 footer{
-    position:absolute;
-    bottom:25px;
+    position:fixed;
+    bottom:22px;
     width:100%;
     text-align:center;
-    letter-spacing:4px;
     color:#ddd;
-    font-size:14px;
+    font-family:Arial, sans-serif;
+    font-size:12px;
+    letter-spacing:4px;
+}
+
+@media(max-width:700px){
+    nav{
+        flex-direction:column;
+        gap:18px;
+    }
+
+    .menu a{
+        margin:0 10px;
+        font-size:11px;
+    }
+
+    h1{
+        font-size:58px;
+    }
+
+    .subtitle{
+        font-size:12px;
+        letter-spacing:3px;
+    }
 }
 </style>
-
 </head>
 
 <body>
 
+<nav>
+    <div class="logo">Svrint<span>ART</span></div>
+    <div class="menu">
+        <a href="#">HOME</a>
+        <a href="#">GALLERY</a>
+        <a href="#">ABOUT</a>
+        <a href="#">CONTACT</a>
+    </div>
+</nav>
+
 <section class="hero">
-
-<div class="content">
-
-<h1>Svrint<span class="gold">ART</span></h1>
-
-<div class="subtitle">
-DIGITAL SURREAL ART • FINE ART PRINTS • INTERIOR DESIGN
-</div>
-
-<div class="buttons">
-<a href="#" class="btn1">VIEW GALLERY</a>
-<a href="#" class="btn2">ABOUT SVRINTART</a>
-</div>
-
-</div>
-
-<footer>
-© 2026 SvrintART
-</footer>
-
+    <div class="content">
+        <h1>Svrint<span class="gold">ART</span></h1>
+        <div class="subtitle">DIGITAL SURREAL ART • FINE ART PRINTS • INTERIOR DESIGN</div>
+        <div class="buttons">
+            <a href="#" class="btn dark">VIEW GALLERY</a>
+            <a href="#" class="btn goldbtn">ABOUT SVRINTART</a>
+        </div>
+    </div>
 </section>
+
+<footer>© 2026 SvrintART</footer>
 
 </body>
 </html>
