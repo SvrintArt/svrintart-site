@@ -1,54 +1,99 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SvrintART</title>
 
 <style>
-body{
+*{
     margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#111;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Georgia, serif;
     color:white;
+    background:#000;
+}
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.55)),
+    url("q.png") center center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     text-align:center;
 }
 
-header{
-    padding:80px 20px;
+.content{
+    max-width:900px;
+    padding:20px;
 }
 
 h1{
-    font-size:60px;
-    margin:0;
-    letter-spacing:3px;
+    font-size:96px;
+    font-weight:300;
+    letter-spacing:2px;
+    margin-bottom:20px;
 }
 
-p{
-    font-size:22px;
-    color:#cccccc;
+.gold{
+    color:#d6a22a;
 }
 
-.button{
-    display:inline-block;
-    margin-top:30px;
-    padding:15px 35px;
-    background:#ffffff;
-    color:#111;
+.subtitle{
+    font-size:24px;
+    letter-spacing:4px;
+    margin-bottom:50px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+a{
     text-decoration:none;
-    font-weight:bold;
-    border-radius:40px;
 }
 
-section{
-    max-width:900px;
-    margin:auto;
-    padding:60px 20px;
+.btn1{
+    color:white;
+    border:2px solid #d6a22a;
+    padding:18px 42px;
+    transition:.3s;
+}
+
+.btn1:hover{
+    background:#d6a22a;
+    color:black;
+}
+
+.btn2{
+    background:#d6a22a;
+    color:black;
+    padding:18px 42px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn2:hover{
+    background:#f2bf47;
 }
 
 footer{
-    padding:40px;
-    color:#777;
+    position:absolute;
+    bottom:25px;
+    width:100%;
+    text-align:center;
+    letter-spacing:4px;
+    color:#ddd;
+    font-size:14px;
 }
 </style>
 
@@ -56,32 +101,28 @@ footer{
 
 <body>
 
-<header>
-<h1>SvrintART</h1>
+<section class="hero">
 
-<p>Digital Surreal Art • Fine Art Prints • Interior Design</p>
+<div class="content">
 
-<a class="button" href="#">Coming Soon</a>
+<h1>Svrint<span class="gold">ART</span></h1>
 
-</header>
+<div class="subtitle">
+DIGITAL SURREAL ART • FINE ART PRINTS • INTERIOR DESIGN
+</div>
 
-<section>
+<div class="buttons">
+<a href="#" class="btn1">VIEW GALLERY</a>
+<a href="#" class="btn2">ABOUT SVRINTART</a>
+</div>
 
-<h2>Welcome</h2>
-
-<p>
-Welcome to the official website of SvrintART.
-Here you will discover surreal digital artworks,
-fine art prints and unique interior design creations.
-</p>
-
-</section>
+</div>
 
 <footer>
-
 © 2026 SvrintART
-
 </footer>
+
+</section>
 
 </body>
 </html>
