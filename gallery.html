@@ -37,9 +37,16 @@
             margin-bottom: 30px;
             letter-spacing: 1px;
         }
+        
+        /* CONTENITORE IMMAGINE PRINCIPALE CON FRECCE */
+        .main-image-wrapper {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto 20px auto;
+            display: inline-block;
+        }
         .main-image-container {
             width: 100%;
-            margin-bottom: 20px;
             text-align: center;
         }
         .main-image { 
@@ -47,7 +54,35 @@
             max-height: 600px; 
             border: 1px solid #222;
             transition: opacity 0.3s ease;
+            display: block;
         }
+        
+        /* STILE DELLE FRECCE */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: #d4af37;
+            border: 1px solid #222;
+            font-size: 28px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            user-select: none;
+            z-index: 10;
+        }
+        .nav-arrow:hover {
+            background: #d4af37;
+            color: #0b0b0b;
+        }
+        .arrow-left {
+            left: 0;
+        }
+        .arrow-right {
+            right: 0;
+        }
+
         .thumbnail-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
@@ -66,6 +101,11 @@
             border-color: #d4af37;
             transform: scale(1.02);
         }
+        /* Classe per evidenziare la miniatura attiva */
+        .thumbnail-grid img.active {
+            border-color: #d4af37;
+        }
+
         .details-box { 
             background: #141414; 
             padding: 30px; 
@@ -99,19 +139,23 @@
         <h1 class="artwork-title">MANIFESTO DELL'ARTE DISTANTE</h1>
         <div class="artist-name">Pio Cecchini — Aesthetics Explorer</div>
         
-        <!-- IMMAGINE PRINCIPALE -->
+        <!-- IMMAGINE PRINCIPALE CON STRUTTURA PER FRECCE -->
         <div class="main-image-container">
-            <img id="mainArt1" class="main-image" src="quadro01-fronte.jpg" alt="Manifesto dell'Arte Distante">
+            <div class="main-image-wrapper">
+                <div class="nav-arrow arrow-left" onclick="prevImage1()">&#10094;</div>
+                <img id="mainArt1" class="main-image" src="quadro01-fronte.jpg" alt="Manifesto dell'Arte Distante">
+                <div class="nav-arrow arrow-right" onclick="nextImage1()">&#10095;</div>
+            </div>
         </div>
         
         <!-- MINIATURE INTERATTIVE -->
-        <div class="thumbnail-grid">
-            <img src="quadro01-fronte.jpg" alt="Vista frontale" onclick="changeImage1(this.src)">
-            <img src="quadro01-ambiente.jpeg" alt="Ambientazione" onclick="changeImage1(this.src)">
-            <img src="quadro01-taglio1.jpg" alt="Vista di taglio" onclick="changeImage1(this.src)">
-            <img src="quadro01-taglio2.jpg" alt="Seconda vista di taglio" onclick="changeImage1(this.src)">
-            <img src="quadro01-dettaglio1.jpg" alt="Dettaglio materico" onclick="changeImage1(this.src)">
-            <img src="quadro01-dettaglio2.jpg" alt="Dettaglio firma" onclick="changeImage1(this.src)">
+        <div class="thumbnail-grid" id="grid1">
+            <img class="active" src="quadro01-fronte.jpg" alt="Vista frontale" onclick="changeImage1(this)">
+            <img src="quadro01-ambiente.jpeg" alt="Ambientazione" onclick="changeImage1(this)">
+            <img src="quadro01-taglio1.jpg" alt="Vista di taglio" onclick="changeImage1(this)">
+            <img src="quadro01-taglio2.jpg" alt="Seconda vista di taglio" onclick="changeImage1(this)">
+            <img src="quadro01-dettaglio1.jpg" alt="Dettaglio materico" onclick="changeImage1(this)">
+            <img src="quadro01-dettaglio2.jpg" alt="Dettaglio firma" onclick="changeImage1(this)">
         </div>
 
         <!-- DETTAGLI E TESTO CONCETTUALE -->
@@ -132,10 +176,41 @@
 
     </div>
 
-    <!-- FUNZIONE JAVASCRIPT PER RENDERE INTERATTIVE LE MINIATURE -->
+    <!-- LOGICA JAVASCRIPT AGGIORNATA PER MINIATURE E FRECCE -->
     <script>
-        function changeImage1(imageSrc) {
-            document.getElementById('mainArt1').src = imageSrc;
+        // Lista ordinata delle immagini ricavata direttamente dai tag presenti nella griglia
+        const images1 = Array.from(document.querySelectorAll('#grid1 img')).map(img => img.src);
+        let currentIndex1 = 0;
+
+        function updateMainImage1() {
+            const mainImg = document.getElementById('mainArt1');
+            mainImg.src = images1[currentIndex1];
+            
+            // Aggiorna l'evidenziazione visiva della miniatura attiva
+            const thumbnails = document.querySelectorAll('#grid1 img');
+            thumbnails.forEach((img, index) => {
+                if (index === currentIndex1) {
+                    img.classList.add('active');
+                } else {
+                    img.classList.remove('active');
+                }
+            });
+        }
+
+        function changeImage1(element) {
+            const thumbnails = Array.from(document.querySelectorAll('#grid1 img'));
+            currentIndex1 = thumbnails.indexOf(element);
+            updateMainImage1();
+        }
+
+        function nextImage1() {
+            currentIndex1 = (currentIndex1 + 1) % images1.length;
+            updateMainImage1();
+        }
+
+        function prevImage1() {
+            currentIndex1 = (currentIndex1 - 1 + images1.length) % images1.length;
+            updateMainImage1();
         }
     </script>
 
