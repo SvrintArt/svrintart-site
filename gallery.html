@@ -177,6 +177,46 @@
 
     </div>
 
+            <!-- DIVISORE TRA LE OPERE -->
+        <hr style="border: 0; border-top: 1px solid #222; margin: 80px 0;">
+
+        <!-- OPERA 2: SGUARDO AMEBICO DEL GENITORE -->
+        <h1 class="artwork-title">SGUARDO AMEBICO DEL GENITORE</h1>
+        <div class="artist-name">Pio Cecchini — Aesthetics Explorer</div>
+        
+        <div class="main-image-container">
+            <img id="mainArt2" class="main-image" src="quadro02-fronte.jpg" alt="Sguardo amebico del genitore">
+        </div>
+
+        <div class="nav-controls">
+            <div class="nav-arrow" onclick="prevImage2()">&#10094; Previous</div>
+            <div class="nav-arrow" onclick="nextImage2()">Next &#10095;</div>
+        </div>
+        
+        <div class="thumbnail-grid" id="grid2">
+            <img class="active" src="quadro02-fronte.jpg" alt="Front view" onclick="changeImage2(this)">
+            <img src="quadro02-ambiente.jpeg" alt="Setting view" onclick="changeImage2(this)">
+            <img src="quadro02-taglio1.jpg" alt="Perspective view" onclick="changeImage2(this)">
+            <img src="quadro02-taglio2.jpg" alt="Second perspective view" onclick="changeImage2(this)">
+            <img src="quadro02-dettaglio1.jpg" alt="Texture detail 1" onclick="changeImage2(this)">
+            <img src="quadro02-dettaglio2.jpg" alt="Texture detail 2" onclick="changeImage2(this)">
+            <img src="quadro02-dettaglio3.jpg" alt="Signature detail" onclick="changeImage2(this)">
+        </div>
+
+        <div class="details-box">
+            <div class="specs">
+                <strong>Dimensions:</strong> 100 x 60 cm &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Technique:</strong> Acrylic and sand on canvas (Conceptual material painting) &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Year:</strong> 2026 &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Status:</strong> Available
+            </div>
+            <p style="margin-top: 0; font-weight: bold; color: #ffffff; letter-spacing: 1px;">CONCEPT:</p>
+            <div class="description-text">
+                The profound parental crisis of the third millennium, both educational and identity-based, erases the defined features of the human face, replacing them with a fluid, unstable, and primitive form: an amoeba. The "amoebic gaze" mourns the emotional bewilderment and the lack of that pedagogical firmness necessary to guide new generations, exposing the dramatic consequences of this relational void. Deprived of boundaries and reference points, unused to renunciation and defeat, children develop deep existential disorders. Contemporary violence and anger do not come from nowhere; they are the painful outlet of this loneliness and disorientation.
+                <br><br>
+                Through the contrasts of matter and color, the canvas aims to be an uncomfortable mirror of our time: a visceral call to parental responsibility and presence.
+            </div>
+        </div>
     <!-- LOGICA JAVASCRIPT -->
     <script>
         const images1 = Array.from(document.querySelectorAll('#grid1 img')).map(img => img.src);
@@ -210,6 +250,35 @@
         function prevImage1() {
             currentIndex1 = (currentIndex1 - 1 + images1.length) % images1.length;
             updateMainImage1();
+        }
+        // --- LOGICA GALLERIA 2 ---
+        const images2 = Array.from(document.querySelectorAll('#grid2 img')).map(img => img.src);
+        let currentIndex2 = 0;
+
+        function updateMainImage2() {
+            const mainImg = document.getElementById('mainArt2');
+            mainImg.src = images2[currentIndex2];
+            const thumbnails = document.querySelectorAll('#grid2 img');
+            thumbnails.forEach((img, index) => {
+                if (index === currentIndex2) img.classList.add('active');
+                else img.classList.remove('active');
+            });
+        }
+
+        function changeImage2(element) {
+            const thumbnails = Array.from(document.querySelectorAll('#grid2 img'));
+            currentIndex2 = thumbnails.indexOf(element);
+            updateMainImage2();
+        }
+
+        function nextImage2() {
+            currentIndex2 = (currentIndex2 + 1) % images2.length;
+            updateMainImage2();
+        }
+
+        function prevImage2() {
+            currentIndex2 = (currentIndex2 - 1 + images2.length) % images2.length;
+            updateMainImage2();
         }
     </script>
 
