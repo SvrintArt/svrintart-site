@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - SvrintART</title>
+    <style>
+        body { 
+            background-color: #0b0b0b; 
+            color: #f5f5f5; 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+        }
+        .nav-back {
+            margin-bottom: 30px;
+        }
+        .nav-back a {
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        .artwork-title { 
+            color: #ffffff; 
+            font-size: 32px; 
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+        .artist-name {
+            color: #a0a0a0;
+            font-size: 18px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+        .main-image-container {
+            width: 100%;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .main-image { 
+            max-width: 100%; 
+            max-height: 600px; 
+            border: 1px solid #222;
+        }
+        .thumbnail-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+            gap: 15px; 
+            margin-bottom: 40px; 
+        }
+        .thumbnail-grid img { 
+            width: 100%; 
+            height: 120px; 
+            object-fit: cover; 
+            border: 1px solid #222;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .thumbnail-grid img:hover {
+            border-color: #d4af37;
+        }
+        .details-box { 
+            background: #141414; 
+            padding: 30px; 
+            border-left: 3px solid #d4af37;
+            line-height: 1.8; 
+            font-size: 16px;
+        }
+        .specs { 
+            font-size: 15px;
+            color: #d4af37; 
+            margin-bottom: 25px; 
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 15px;
+        }
+        .specs strong { color: #ffffff; }
+        .description-text {
+            color: #e0e0e0;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="nav-back">
+            <a href="index.html">← HOME</a>
+        </div>
+
+        <h1 class="artwork-title">MANIFESTO DELL'ARTE DISTANTE</h1>
+        <div class="artist-name">Pio Cecchini — Aesthetics Explorer</div>
+        
+        <!-- IMMAGINE PRINCIPALE -->
+        <div class="main-image-container">
+            <img class="main-image" src="quadro-fronte.png" alt="Manifesto dell'Arte Distante">
+        </div>
+        
+        <!-- ALTRE IMMAGINI DI DETTAGLIO -->
+        <div class="thumbnail-grid">
+            <img src="quadro-ambiente.png" alt="Ambientazione">
+            <img src="quadro-taglio1.png" alt="Dettaglio prospettiva">
+            <img src="quadro-taglio2.png" alt="Spessore tela">
+            <img src="quadro-dettaglio1.png" alt="Dettaglio materia">
+            <img src="quadro-dettaglio2.png" alt="Dettaglio firma">
+        </div>
+
+        <!-- DETTAGLI E TESTO CONCETTUALE -->
+        <div class="details-box">
+            <div class="specs">
+                <strong>Dimensioni:</strong> 100 x 60 cm &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Tecnica:</strong> Acrilico e sabbia su tela (Pittura materica concettuale) &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Anno:</strong> 2026 &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Stato:</strong> Disponibile
+            </div>
+            <p style="margin-top: 0; font-weight: bold; color: #ffffff; letter-spacing: 1px;">NOTA CONCETTUALE DELL'ARTISTA:</p>
+            <div class="description-text">
+                Il cosmo ha le sue leggi, che la scienza spiega solo in parte. Nei pressi di un buco nero, le forze di marea causate dalle differenze di gravità tendono ad allungare e lacerare i corpi; il tempo rallenta, le traiettorie delle linee visuali vengono deviate e la luce viene inghiottita. Queste entità misteriose e affascinanti, create dall’implosione di vecchie stelle, attirano tutto oltre l’orizzonte degli eventi, luogo dove regna l’ignoto.
+                <br><br>
+                Auspico che anche i buchi neri del nostro inconscio possano inghiottire tutto ciò che non riusciamo a lasciare andare, facendolo svanire oltre l’orizzonte degli eventi del lato oscuro della nostra mente, un luogo che tutti possediamo, sappiamo di possedere ma che evitiamo accuratamente di frequentare.
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
