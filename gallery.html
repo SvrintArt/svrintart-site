@@ -46,6 +46,7 @@
             max-width: 100%; 
             max-height: 600px; 
             border: 1px solid #222;
+            transition: opacity 0.3s ease;
         }
         .thumbnail-grid { 
             display: grid; 
@@ -59,10 +60,11 @@
             object-fit: cover; 
             border: 1px solid #222;
             cursor: pointer;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s, transform 0.2s;
         }
         .thumbnail-grid img:hover {
             border-color: #d4af37;
+            transform: scale(1.02);
         }
         .details-box { 
             background: #141414; 
@@ -96,18 +98,19 @@
         <h1 class="artwork-title">MANIFESTO DELL'ARTE DISTANTE</h1>
         <div class="artist-name">Pio Cecchini — Aesthetics Explorer</div>
         
-        <!-- IMMAGINE PRINCIPALE -->
+        <!-- IMMAGINE PRINCIPALE INTERATTIVA -->
         <div class="main-image-container">
-            <img class="main-image" src="quadro-fronte.png" alt="Manifesto dell'Arte Distante">
+            <img id="mainArt" class="main-image" src="quadro-fronte.jpg" alt="Manifesto dell'Arte Distante">
         </div>
         
-        <!-- ALTRE IMMAGINI DI DETTAGLIO -->
+        <!-- ALTRE IMMAGINI DI DETTAGLIO CON ESTENSIONI CORRETTE -->
         <div class="thumbnail-grid">
-            <img src="quadro-ambiente.png" alt="Ambientazione">
-            <img src="quadro-taglio1.png" alt="Dettaglio prospettiva">
-            <img src="quadro-taglio2.png" alt="Spessore tela">
-            <img src="quadro-dettaglio1.png" alt="Dettaglio materia">
-            <img src="quadro-dettaglio2.png" alt="Dettaglio firma">
+            <img src="quadro-fronte.jpg" alt="Vista frontale" onclick="changeImage(this.src)">
+            <img src="quadro-ambiente.jpeg" alt="Ambientazione" onclick="changeImage(this.src)">
+            <img src="quadro-taglio1.jpg" alt="Dettaglio prospettiva" onclick="changeImage(this.src)">
+            <img src="quadro-taglio2.jpg" alt="Spessore tela" onclick="changeImage(this.src)">
+            <img src="quadro-dettaglio1.jpg" alt="Dettaglio materia" onclick="changeImage(this.src)">
+            <img src="quadro-dettaglio2.jpg" alt="Dettaglio firma" onclick="changeImage(this.src)">
         </div>
 
         <!-- DETTAGLI E TESTO CONCETTUALE -->
@@ -126,6 +129,18 @@
             </div>
         </div>
     </div>
+
+    <!-- SCRIPT PER IL CAMBIO IMMAGINE INTERATTIVO -->
+    <script>
+        function changeImage(src) {
+            const mainImg = document.getElementById('mainArt');
+            mainImg.style.opacity = 0;
+            setTimeout(() => {
+                mainImg.src = src;
+                mainImg.style.opacity = 1;
+            }, 250);
+        }
+    </script>
 
 </body>
 </html>
