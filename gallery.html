@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +8,10 @@
         body { 
             background-color: #0b0b0b; 
             color: #f5f5f5; 
-            font-family: 'Garamond', Georgia, serif; /* CARATTERE GARAMOND IMPOSTATO OVUNQUE */
+            font-family: 'Garamond', Georgia, serif;
             margin: 0; 
             padding: 40px 20px;
-            font-size: 18px; /* Leggermente più grande perché il Garamond è un font stretto */
+            font-size: 18px;
         }
         .container { 
             max-width: 1100px; 
@@ -143,41 +143,41 @@
             <img id="mainArt1" class="main-image" src="quadro01-fronte.jpg" alt="Manifesto dell'Arte Distante">
         </div>
 
-        <!-- PULSANTI DI SCORRIMENTO CENTRATI SOTTO L'IMMAGINE -->
+        <!-- PULSANTI DI SCORRIMENTO -->
         <div class="nav-controls">
-            <div class="nav-arrow" onclick="prevImage1()">&#10094; Precedente</div>
-            <div class="nav-arrow" onclick="nextImage1()">Successiva &#10095;</div>
+            <div class="nav-arrow" onclick="prevImage1()">&#10094; Previous</div>
+            <div class="nav-arrow" onclick="nextImage1()">Next &#10095;</div>
         </div>
         
         <!-- MINIATURE INTERATTIVE -->
         <div class="thumbnail-grid" id="grid1">
-            <img class="active" src="quadro01-fronte.jpg" alt="Vista frontale" onclick="changeImage1(this)">
-            <img src="quadro01-ambiente.jpeg" alt="Ambientazione" onclick="changeImage1(this)">
-            <img src="quadro01-taglio1.jpg" alt="Vista di taglio" onclick="changeImage1(this)">
-            <img src="quadro01-taglio2.jpg" alt="Seconda vista di taglio" onclick="changeImage1(this)">
-            <img src="quadro01-dettaglio1.jpg" alt="Dettaglio materico" onclick="changeImage1(this)">
-            <img src="quadro01-dettaglio2.jpg" alt="Dettaglio firma" onclick="changeImage1(this)">
+            <img class="active" src="quadro01-fronte.jpg" alt="Front view" onclick="changeImage1(this)">
+            <img src="quadro01-ambiente.jpeg" alt="Setting view" onclick="changeImage1(this)">
+            <img src="quadro01-taglio1.jpg" alt="Perspective view" onclick="changeImage1(this)">
+            <img src="quadro01-taglio2.jpg" alt="Second perspective view" onclick="changeImage1(this)">
+            <img src="quadro01-dettaglio1.jpg" alt="Texture detail" onclick="changeImage1(this)">
+            <img src="quadro01-dettaglio2.jpg" alt="Signature detail" onclick="changeImage1(this)">
         </div>
 
         <!-- DETTAGLI E TESTO CONCETTUALE -->
         <div class="details-box">
             <div class="specs">
-                <strong>Dimensioni:</strong> 100 x 60 cm &nbsp;&nbsp;|&nbsp;&nbsp; 
-                <strong>Tecnica:</strong> Acrilico e sabbia su tela (Pittura materica concettuale) &nbsp;&nbsp;|&nbsp;&nbsp; 
-                <strong>Anno:</strong> 2026 &nbsp;&nbsp;|&nbsp;&nbsp; 
-                <strong>Stato:</strong> Disponibile
+                <strong>Dimensions:</strong> 100 x 60 cm &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Technique:</strong> Acrylic and sand on canvas (Conceptual material painting) &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Year:</strong> 2026 &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Status:</strong> Available
             </div>
-            <p style="margin-top: 0; font-weight: bold; color: #ffffff; letter-spacing: 1px;">NOTA CONCETTUALE DELL'ARTISTA:</p>
+            <p style="margin-top: 0; font-weight: bold; color: #ffffff; letter-spacing: 1px;">CONCEPT:</p>
             <div class="description-text">
-                Il cosmo ha le sue leggi, che la scienza spiega solo in parte. Nei pressi di un buco nero, le forze di marea causate dalle differenze di gravità tendono ad allungare e lacerare i corpi; il tempo rallenta, le traiettorie delle linee visuali vengono deviate e la luce viene inghiottita. Queste entità misteriose e affascinanti, create dall’implosione di vecchie stelle, attirano tutto oltre l’orizzonte degli eventi, luogo dove regna l’ignoto.
+                The cosmos has its laws, which science can only partially explain. Near a black hole, tidal forces caused by differences in gravity tend to stretch and tear bodies apart; time slows down, visual light trajectories are deflected, and light itself is swallowed. These mysterious and fascinating entities, born from the implosione of old stars, draw everything beyond the event horizon—a place where the unknown reigns.
                 <br><br>
-                Auspico che anche i buchi neri del nostro inconscio possano inghiottire tutto ciò che non riusciamo a lasciare andare, facendolo svanire oltre l’orizzonte degli eventi del lato oscuro della nostra mente, un luogo che tutti possediamo, sappiamo di possedere ma che evitiamo accuratamente di frequentare.
+                It is my hope that the black holes of our subconscious can also swallow everything we cannot let go of, causing it to vanish beyond the event horizon of the dark side of our minds—a place we all possess, know we possess, but carefully avoid visiting.
             </div>
         </div>
 
     </div>
 
-    <!-- LOGICA JAVASCRIPT PER MINIATURE E PULSANTI -->
+    <!-- LOGICA JAVASCRIPT -->
     <script>
         const images1 = Array.from(document.querySelectorAll('#grid1 img')).map(img => img.src);
         let currentIndex1 = 0;
