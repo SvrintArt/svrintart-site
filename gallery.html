@@ -300,6 +300,45 @@
                 <br><br>
                 SvrintART therefore celebrates the metaphor of life, where the unexpected and the constraint of the "elsewhere" become determining factors in the final outcome of the figurative work. As a result, it is no longer a simple representation, but a phenomenon… SVRINT.
             </div>
+        </div> 
+            <!-- DIVISORE TRA LE OPERE -->
+        <hr style="border: 0; border-top: 1px solid #222; margin: 80px 0;">
+
+        <!-- OPERA 5: PIANETI OCULARI DEL GENITORE ERRANTE... -->
+        <h1 class="artwork-title">Pianeti oculari del genitore errante nella galassia della sprovvedutezza</h1>
+        <div class="artist-name">Pio Cecchini — Aesthetics Explorer</div>
+        
+        <div class="main-image-container">
+            <img id="mainArt5" class="main-image" src="quadro05-a_fronte.jpg" alt="Pianeti oculari del genitore errante nella galassia della sprovvedutezza">
+        </div>
+
+        <div class="nav-controls">
+            <div class="nav-arrow" onclick="prevImage5()">&#10094; Previous</div>
+            <div class="nav-arrow" onclick="nextImage5()">Next &#10095;</div>
+        </div>
+        
+        <div class="thumbnail-grid" id="grid5">
+            <img class="active" src="quadro05-a_fronte.jpg" alt="Front view" onclick="changeImage5(this)">
+            <img src="quadro05-ambiente.jpg" alt="Setting view" onclick="changeImage5(this)">
+            <img src="quadro05-taglio1.jpg" alt="Perspective view 1" onclick="changeImage5(this)">
+            <img src="quadro05-taglio2.jpg" alt="Perspective view 2" onclick="changeImage5(this)">
+            <img src="quadro05-dettaglio1.jpg" alt="Texture detail 1" onclick="changeImage5(this)">
+            <img src="quadro05-dettaglio2.jpg" alt="Texture detail 2" onclick="changeImage5(this)">
+        </div>
+
+        <div class="details-box">
+            <div class="specs">
+                <strong>Dimensions:</strong> 100 x 60 cm &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Technique:</strong> Acrylic and sand on canvas (Conceptual material painting) &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Year:</strong> 2026 &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Status:</strong> Available
+            </div>
+            <p style="margin-top: 0; font-weight: bold; color: #ffffff; letter-spacing: 1px;">CONCEPT:</p>
+            <div class="description-text">
+                Ocular eyeballs float within an immanent, texturized space that fades from smoky gray to deep blue. These cores, resembling scattered and powerless planets, drift through the cosmos devoid of a true center of gravity, visually translating the bewilderment and blindness of parental wandering. 
+                <br><br>
+                Thin, luminous strands of DNA cross the composition like chains transmitting flaws and weaknesses to the offspring, who find themselves inexorably imprisoned by their hereditary destiny. This controlled drift traps each sphere within a mandatory trajectory, where the gaze, suspended in the orbit of its own helplessness, fluctuates dramatically between the instinct to watch over and the inevitable dispersion into the surrounding void.
+            </div>
         </div>
     <!-- LOGICA JAVASCRIPT -->
     <script>
@@ -421,6 +460,35 @@
         function prevImage4() {
             currentIndex4 = (currentIndex4 - 1 + images4.length) % images4.length;
             updateMainImage4();
+        } 
+                // --- LOGICA GALLERIA 5 ---
+        const images5 = Array.from(document.querySelectorAll('#grid5 img')).map(img => img.src);
+        let currentIndex5 = 0;
+
+        function updateMainImage5() {
+            const mainImg = document.getElementById('mainArt5');
+            mainImg.src = images5[currentIndex5];
+            const thumbnails = document.querySelectorAll('#grid5 img');
+            thumbnails.forEach((img, index) => {
+                if (index === currentIndex5) img.classList.add('active');
+                else img.classList.remove('active');
+            });
+        }
+
+        function changeImage5(element) {
+            const thumbnails = Array.from(document.querySelectorAll('#grid5 img'));
+            currentIndex5 = thumbnails.indexOf(element);
+            updateMainImage5();
+        }
+
+        function nextImage5() {
+            currentIndex5 = (currentIndex5 + 1) % images5.length;
+            updateMainImage5();
+        }
+
+        function prevImage5() {
+            currentIndex5 = (currentIndex5 - 1 + images5.length) % images5.length;
+            updateMainImage5();
         }
     </script>
 
