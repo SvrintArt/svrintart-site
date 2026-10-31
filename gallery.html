@@ -255,6 +255,51 @@
             <div class="description-text">
                 The canvas splits into two asymmetric hemispheres, separated by a vertical golden wound, where the act of exposing oneself fails in its very execution. On the left, the amoebic structure attempts to reassemble behind concentric forms, red membranes, and petrified gazes, as if trying to erect a final, desperate defensive barrier. There is an intrinsic clumsiness in this effort: the mask does not fall with dignity but tears apart, slipping away in heavy, pasty shreds. On the right side, the collapse becomes dynamic and grotesque. A dark, sinuous line snakes upward like a mute cry or a tentacle of guilt, while a large, wide-open orange mouth reveals a deep, almost visceral void. The parent's attempt to show their authentic self reveals itself as a clumsy movement—a parade of weaknesses without absolution, yet permanently imprinted in the material. The mask, partially removed, does not liberate the face but exposes the stratification of one's daily failures.
             </div>
+        </div> 
+            <!-- DIVISORE TRA LE OPERE -->
+        <hr style="border: 0; border-top: 1px solid #222; margin: 80px 0;">
+
+        <!-- OPERA 4: SVRINTART 01 - GENESIS -->
+        <h1 class="artwork-title">SvrintART 01 - Genesis</h1>
+        <div class="artist-name">Pio Cecchini — Aesthetics Explorer</div>
+        
+        <div class="main-image-container">
+            <img id="mainArt4" class="main-image" src="quadro04-a_fronte.png" alt="SvrintART 01 - Genesis">
+        </div>
+
+        <div class="nav-controls">
+            <div class="nav-arrow" onclick="prevImage4()">&#10094; Previous</div>
+            <div class="nav-arrow" onclick="nextImage4()">Next &#10095;</div>
+        </div>
+        
+        <div class="thumbnail-grid" id="grid4">
+            <img class="active" src="quadro04-a_fronte.png" alt="Front view" onclick="changeImage4(this)">
+            <img src="quadro04-ambiente.png" alt="Setting view" onclick="changeImage4(this)">
+            <img src="quadro04-taglio1.png" alt="Perspective view 1" onclick="changeImage4(this)">
+            <img src="quadro04-taglio2.png" alt="Perspective view 2" onclick="changeImage4(this)">
+            <img src="quadro04-dettaglio1.png" alt="Texture detail 1" onclick="changeImage4(this)">
+            <img src="quadro04-dettaglio2.png" alt="Texture detail 2" onclick="changeImage4(this)">
+        </div>
+
+        <div class="details-box">
+            <div class="specs">
+                <strong>Dimensions:</strong> 100 x 60 cm &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Technique:</strong> Acrylic, iron dust, and metallic fragments on canvas (Magnetic material painting) &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Year:</strong> 2026 &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Status:</strong> Available
+            </div>
+            <p style="margin-top: 0; font-weight: bold; color: #ffffff; letter-spacing: 1px;">CONCEPT:</p>
+            <div class="description-text">
+                From the loud, irregular scratching of metal, the stroke is born! A “svrinnn”, a “trint”, a metallic friction, an intermittent sound accompanies the birth of form.
+                <br><br>
+                SvrintART does not use the brush as a docile extension of the will. The line is not drawn: it is provoked. The acrylic matter is arranged on the canvas as a possible choice. Iron dust, small nails, washers, and metallic fragments are brought to tension through magnetism.
+                <br><br>
+                But there is a background noise… The gesture beneath the surface, invisible, drags the iron that tears, punctures, accumulates, and scatters the color. But that noise demands attention…
+                <br><br>
+                The artwork is born from the encounter between control and disobedience, foresight and chance. Magnetism thus becomes a field of deterministic chaos, a force governed but never fully dominable, and chance is not an error but an invisible collaborator. But that hysterical, screeching racket takes over… and interferes with the docile, sinuous movements, which fruitlessly scramble up the steep climb of desired creativity.
+                <br><br>
+                SvrintART therefore celebrates the metaphor of life, where the unexpected and the constraint of the "elsewhere" become determining factors in the final outcome of the figurative work. As a result, it is no longer a simple representation, but a phenomenon… SVRINT.
+            </div>
         </div>
     <!-- LOGICA JAVASCRIPT -->
     <script>
@@ -347,6 +392,35 @@
         function prevImage3() {
             currentIndex3 = (currentIndex3 - 1 + images3.length) % images3.length;
             updateMainImage3();
+        } 
+                // --- LOGICA GALLERIA 4 ---
+        const images4 = Array.from(document.querySelectorAll('#grid4 img')).map(img => img.src);
+        let currentIndex4 = 0;
+
+        function updateMainImage4() {
+            const mainImg = document.getElementById('mainArt4');
+            mainImg.src = images4[currentIndex4];
+            const thumbnails = document.querySelectorAll('#grid4 img');
+            thumbnails.forEach((img, index) => {
+                if (index === currentIndex4) img.classList.add('active');
+                else img.classList.remove('active');
+            });
+        }
+
+        function changeImage4(element) {
+            const thumbnails = Array.from(document.querySelectorAll('#grid4 img'));
+            currentIndex4 = thumbnails.indexOf(element);
+            updateMainImage4();
+        }
+
+        function nextImage4() {
+            currentIndex4 = (currentIndex4 + 1) % images4.length;
+            updateMainImage4();
+        }
+
+        function prevImage4() {
+            currentIndex4 = (currentIndex4 - 1 + images4.length) % images4.length;
+            updateMainImage4();
         }
     </script>
 
