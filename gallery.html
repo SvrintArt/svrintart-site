@@ -216,6 +216,45 @@
                 <br><br>
                 Through the contrasts of matter and color, the canvas aims to be an uncomfortable mirror of our time: a visceral call to parental responsibility and presence.
             </div>
+        </div> 
+            <!-- DIVISORE TRA LE OPERE -->
+        <hr style="border: 0; border-top: 1px solid #222; margin: 80px 0;">
+
+        <!-- OPERA 3: MALDESTRO TENTATIVO DEL GENITORE... -->
+        <h1 class="artwork-title">Maldestro tentativo del genitore di gettare la maschera dei propri fallimenti</h1>
+        <div class="artist-name">Pio Cecchini — Aesthetics Explorer</div>
+        
+        <div class="main-image-container">
+            <img id="mainArt3" class="main-image" src="quadro03-a_fronte.png" alt="Maldestro tentativo del genitore di gettare la maschera dei propri fallimenti">
+        </div>
+
+        <div class="nav-controls">
+            <div class="nav-arrow" onclick="prevImage3()">&#10094; Previous</div>
+            <div class="nav-arrow" onclick="nextImage3()">Next &#10095;</div>
+        </div>
+        
+        <div class="thumbnail-grid" id="grid3">
+            <img class="active" src="quadro03-a_fronte.png" alt="Front view" onclick="changeImage3(this)">
+            <img src="quadro03-ambiente.png" alt="Setting view" onclick="changeImage3(this)">
+            <img src="quadro03-taglio1.png" alt="Perspective view 1" onclick="changeImage3(this)">
+            <img src="quadro03-taglio2.png" alt="Perspective view 2" onclick="changeImage3(this)">
+            <img src="quadro03-dettaglio1.png" alt="Texture detail 1" onclick="changeImage3(this)">
+            <img src="quadro03-dettaglio2.png" alt="Texture detail 2" onclick="changeImage3(this)">
+            <img src="quadro03-dettaglio3.png" alt="Texture detail 3" onclick="changeImage3(this)">
+            <img src="quadro03-dettaglio4.png" alt="Texture detail 4" onclick="changeImage3(this)">
+        </div>
+
+        <div class="details-box">
+            <div class="specs">
+                <strong>Dimensions:</strong> 100 x 60 cm &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Technique:</strong> Acrylic and sand on canvas (Conceptual material painting) &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Year:</strong> 2026 &nbsp;&nbsp;|&nbsp;&nbsp; 
+                <strong>Status:</strong> Available
+            </div>
+            <p style="margin-top: 0; font-weight: bold; color: #ffffff; letter-spacing: 1px;">CONCEPT:</p>
+            <div class="description-text">
+                The canvas splits into two asymmetric hemispheres, separated by a vertical golden wound, where the act of exposing oneself fails in its very execution. On the left, the amoebic structure attempts to reassemble behind concentric forms, red membranes, and petrified gazes, as if trying to erect a final, desperate defensive barrier. There is an intrinsic clumsiness in this effort: the mask does not fall with dignity but tears apart, slipping away in heavy, pasty shreds. On the right side, the collapse becomes dynamic and grotesque. A dark, sinuous line snakes upward like a mute cry or a tentacle of guilt, while a large, wide-open orange mouth reveals a deep, almost visceral void. The parent's attempt to show their authentic self reveals itself as a clumsy movement—a parade of weaknesses without absolution, yet permanently imprinted in the material. The mask, partially removed, does not liberate the face but exposes the stratification of one's daily failures.
+            </div>
         </div>
     <!-- LOGICA JAVASCRIPT -->
     <script>
@@ -279,6 +318,35 @@
         function prevImage2() {
             currentIndex2 = (currentIndex2 - 1 + images2.length) % images2.length;
             updateMainImage2();
+        } 
+                // --- LOGICA GALLERIA 3 ---
+        const images3 = Array.from(document.querySelectorAll('#grid3 img')).map(img => img.src);
+        let currentIndex3 = 0;
+
+        function updateMainImage3() {
+            const mainImg = document.getElementById('mainArt3');
+            mainImg.src = images3[currentIndex3];
+            const thumbnails = document.querySelectorAll('#grid3 img');
+            thumbnails.forEach((img, index) => {
+                if (index === currentIndex3) img.classList.add('active');
+                else img.classList.remove('active');
+            });
+        }
+
+        function changeImage3(element) {
+            const thumbnails = Array.from(document.querySelectorAll('#grid3 img'));
+            currentIndex3 = thumbnails.indexOf(element);
+            updateMainImage3();
+        }
+
+        function nextImage3() {
+            currentIndex3 = (currentIndex3 + 1) % images3.length;
+            updateMainImage3();
+        }
+
+        function prevImage3() {
+            currentIndex3 = (currentIndex3 - 1 + images3.length) % images3.length;
+            updateMainImage3();
         }
     </script>
 
