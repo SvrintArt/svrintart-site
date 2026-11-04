@@ -12,6 +12,7 @@
             margin: 0; 
             padding: 40px 20px;
             font-size: 18px;
+            scroll-behavior: smooth;
         }
         .container { 
             max-width: 1100px; 
@@ -99,6 +100,72 @@
             opacity: 0.9;
             transform: scale(1.02);
         }
+        /* Layout a griglia per le opere */
+.svrintart-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Scatola della miniatura */
+.art-thumb-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.art-thumb-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Rende le miniature perfettamente quadrate (o usa 4/3 se preferisci) */
+  background-color: #000;
+  border: 1px solid #1a1a1a;
+  overflow: hidden; /* Taglia l'immagine quando si ingrandisce oltre i bordi */
+  cursor: pointer;
+}
+
+/* L'immagine della miniatura */
+.art-thumb-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Transizione fluida e morbida */
+}
+
+/* L'EFFETTO HOVER: L'immagine si ingrandisce espandendosi dal centro */
+.art-thumb-box:hover img {
+  transform: scale(1.12); /* Ingrandisce l'immagine del 12% mantenendola centrata */
+}
+
+/* Testo che compare in dissolvenza sull'opera al passaggio del mouse */
+.art-overlay-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.art-thumb-box:hover .art-overlay-title {
+  opacity: 1; /* Il titolo appare fluidamente quando passi il mouse */
+}
+
+.art-overlay-title h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.art-overlay-title span {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
         .thumbnail-grid img.active {
             border-color: #d4af37;
             opacity: 1;
@@ -134,8 +201,70 @@
             <a href="index.html">← HOME</a>
         </div>
 
+                <!-- ==========================================
+           NUOVA SCHERMATA INIZIALE GALLERIA
+           ========================================== -->
+        <h1 style="color: #ffffff; font-size: 42px; letter-spacing: 3px; text-align: center; margin-top: 40px; margin-bottom: 10px;">GALLERY</h1>
+        <div style="color: #a0a0a0; font-size: 18px; text-align: center; letter-spacing: 2px; margin-bottom: 40px;">Seleziona un'opera per visionare i dettagli e le prospettive</div>
+
+        <div class="svrintart-gallery">
+
+          <!-- Opera 1 -->
+          <a href="#opera-distante" class="art-thumb-link">
+            <div class="art-thumb-box">
+              <img src="quadro01-fronte.jpg" alt="Manifesto dell'Arte Distante">
+              <div class="art-overlay-title">
+                <h3>Manifesto dell'Arte Distante</h3>
+                <span>Scopri l'opera ↓</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Opera 2 -->
+          <a href="#sguardo-amebico" class="art-thumb-link">
+            <div class="art-thumb-box">
+              <img src="quadro02-fronte.jpg" alt="Sguardo amebico del genitore">
+              <div class="art-overlay-title">
+                <h3>Sguardo amebico del genitore</h3>
+                <span>Scopri l'opera ↓</span>
+              </div>
+            </div>
+          </a>
+
+              <!-- Opera 3 -->
+          <a href="#tentativo-genitore" class="art-thumb-link">
+            <div class="art-thumb-box">
+              <img src="quadro03-fronte.jpg" alt="Maldestro tentativo del genitore...">
+              <div class="art-overlay-title">
+                <h3>Maldestro tentativo del genitore...</h3>
+                <span>Scopri l'opera ↓</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+         <!-- Opera 4 -->
+          <a href="#genesis" class="art-thumb-link">
+            <div class="art-thumb-box">
+              <img src="quadro04-a_fronte.jpg" alt="SvrintART 01 - Genesis">
+              <div class="art-overlay-title">
+                <h3>SvrintART 01 - Genesis</h3>
+                <span>Scopri l'opera ↓</span>
+              </div>
+            </div>
+          </a> 
+                  <!-- Opera 5 -->
+          <a href="#pianeti-oculari" class="art-thumb-link">
+            <div class="art-thumb-box">
+              <img src="quadro05-a_fronte.jpg" alt="Pianeti oculari del genitore errante...">
+              <div class="art-overlay-title">
+                <h3>Pianeti oculari del genitore errante...</h3>
+                <span>Scopri l'opera ↓</span>
+              </div>
+            </div>
+          </a>
         <!-- OPERA 1: MANIFESTO DELL'ARTE DISTANTE -->
-        <h1 class="artwork-title">MANIFESTO DELL'ARTE DISTANTE</h1>
+        <h1 class="artwork-title" id="opera-distante">MANIFESTO DELL'ARTE DISTANTE</h1>
         <div class="artist-name">Pio Cecchini — Aesthetics Explorer</div>
         
         <!-- IMMAGINE PRINCIPALE -->
@@ -181,7 +310,7 @@
         <hr style="border: 0; border-top: 1px solid #222; margin: 80px 0;">
 
         <!-- OPERA 2: SGUARDO AMEBICO DEL GENITORE -->
-        <h1 class="artwork-title">SGUARDO AMEBICO DEL GENITORE</h1>
+        <h1 class="artwork-title" id="sguardo-amebico">SGUARDO AMEBICO DEL GENITORE</h1>
         <div class="artist-name">Pio Cecchini — Aesthetics Explorer</div>
         
         <div class="main-image-container">
@@ -221,7 +350,7 @@
         <hr style="border: 0; border-top: 1px solid #222; margin: 80px 0;">
 
         <!-- OPERA 3: MALDESTRO TENTATIVO DEL GENITORE... -->
-        <h1 class="artwork-title">Maldestro tentativo del genitore di gettare la maschera dei propri fallimenti</h1>
+        <h1 class="artwork-title" id="tentativo-genitore">Maldestro tentativo del genitore di gettare la maschera dei propri fallimenti</h1>
         <div class="artist-name">Pio Cecchini — Aesthetics Explorer</div>
         
         <div class="main-image-container">
@@ -260,7 +389,7 @@
         <hr style="border: 0; border-top: 1px solid #222; margin: 80px 0;">
 
         <!-- OPERA 4: SVRINTART 01 - GENESIS -->
-        <h1 class="artwork-title">SvrintART 01 - Genesis</h1>
+        <h1 class="artwork-title" id="genesis">SvrintART 01 - Genesis</h1>
         <div class="artist-name">Pio Cecchini — Aesthetics Explorer</div>
         
         <div class="main-image-container">
@@ -305,7 +434,7 @@
         <hr style="border: 0; border-top: 1px solid #222; margin: 80px 0;">
 
         <!-- OPERA 5: PIANETI OCULARI DEL GENITORE ERRANTE... -->
-        <h1 class="artwork-title">Pianeti oculari del genitore errante nella galassia della sprovvedutezza</h1>
+       <h1 class="artwork-title" id="pianeti-oculari">Pianeti oculari del genitore errante nella galassia della sprovvedutezza</h1>
         <div class="artist-name">Pio Cecchini — Aesthetics Explorer</div>
         
         <div class="main-image-container">
