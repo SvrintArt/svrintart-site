@@ -341,6 +341,42 @@
                 Thin, luminous strands of DNA cross the composition like chains transmitting flaws and weaknesses to the offspring, who find themselves inexorably imprisoned by their hereditary destiny. This controlled drift traps each sphere within a mandatory trajectory, where the gaze, suspended in the orbit of its own helplessness, fluctuates dramatically between the instinct to watch over and the inevitable dispersion into the surrounding void.
             </div>
         </div>
+        <!-- DIVISORE TRA LE OPERE -->
+        <hr style="border: 0; border-top: 1px solid #222; margin: 80px 0;">
+
+        <!-- OPERA 6: POLARITÀ E DISSONANZE -->
+        <h1 class="artwork-title" id="polarita-dissonanze">SvrintART 05 – Diptych: Polarities and Dissonances</h1>
+        <div class="artwork-subtitle">Conceptual Material Diptych</div>
+
+        <div class="main-viewer">
+            <button class="nav-btn prev-btn" onclick="prevImage6()">&#10094;</button>
+            <img id="mainArt6" src="quadro06-a_fronte.jpg" alt="SvrintART 05 – Diptych: Polarities and Dissonances">
+            <button class="nav-btn next-btn" onclick="nextImage6()">&#10095;</button>
+        </div>
+
+        <div class="thumbnail-grid" id="grid6">
+            <img class="active" src="quadro06-a_fronte.jpg" alt="Front view" onclick="changeImage6(this)">
+            <img src="quadro06-ambiente.jpeg" alt="Setting view" onclick="changeImage6(this)">
+            <img src="quadro06-taglio1.jpg" alt="Perspective view 1" onclick="changeImage6(this)">
+            <img src="quadro06-taglio2.jpg" alt="Perspective view 2" onclick="changeImage6(this)">
+            <img src="quadro06-dettaglio1.jpg" alt="Texture detail 1" onclick="changeImage6(this)">
+            <img src="quadro06-dettaglio2.jpg" alt="Texture detail 2" onclick="changeImage6(this)">
+        </div>
+
+        <div class="details-box">
+            <div class="specs">
+                <strong>Dimensions:</strong> 100 x 60 cm &nbsp;&nbsp;|&nbsp;&nbsp;
+                <strong>Technique:</strong> Mixed media, acrylic, iron powders and magnetism on canvas (Diptych) &nbsp;&nbsp;|&nbsp;&nbsp;
+                <strong>Year:</strong> 2026 &nbsp;&nbsp;|&nbsp;&nbsp;
+                <strong>Status:</strong> Available
+            </div>
+            <p style="margin-top: 0; font-weight: bold; color: #ffffff; letter-spacing: 1px;">CONCEPT:</p>
+            <div class="description-text">
+                This fifth work breaks the unity of space and splits into an asymmetrical diptych, exploring the concept of structural polarities through a tight chromatic dialogue. On the left, an embryonic figure with thick purple, fuchsia, and black stratifications is confined against a desaturated green background, furrowed by a rain of vertical scratches. Within this formal cage, a first cell of yellow is generated—a dense, concentrated mass struggling to find an escape route upward. On the right, space explodes into a saturated chromatic labyrinth. That same solar energy, which was compressed on the left, regains vigor here and spreads into a powerful yellow trail illuminating the base of the canvas, only to be dragged, fragmented, and irremediably exhausted in the chaotic flow of the svrint, swallowed by white coils and purplish masses.
+                <br><br>
+                Magnetism acts as an invisible and ruthless bridge: it allows the yellow to escape from the first panel, only to lead it to consume itself in the second. The diptych thus becomes the ultimate metaphor of SvrintART: the coexistence between the claustrophobic order of will and the wonderful, jarring anarchy of chance that consumes everything.
+            </div>
+        </div>
     <!-- LOGICA JAVASCRIPT -->
     <script>
         const images1 = Array.from(document.querySelectorAll('#grid1 img')).map(img => img.src);
@@ -490,6 +526,35 @@
         function prevImage5() {
             currentIndex5 = (currentIndex5 - 1 + images5.length) % images5.length;
             updateMainImage5();
+        }
+          // --- LOGICA GALLERIA 6 ---
+        const images6 = Array.from(document.querySelectorAll('#grid6 img')).map(img => img.src);
+        let currentIndex6 = 0;
+
+        function updateMainImage6() {
+            const mainImg = document.getElementById('mainArt6');
+            mainImg.src = images6[currentIndex6];
+            const thumbnails = document.querySelectorAll('#grid6 img');
+            thumbnails.forEach((img, index) => {
+                if (index === currentIndex6) img.classList.add('active');
+                else img.classList.remove('active');
+            });
+        }
+
+        function changeImage6(element) {
+            const thumbnails = Array.from(document.querySelectorAll('#grid6 img'));
+            currentIndex6 = thumbnails.indexOf(element);
+            updateMainImage6();
+        }
+
+        function nextImage6() {
+            currentIndex6 = (currentIndex6 + 1) % images6.length;
+            updateMainImage6();
+        }
+
+        function prevImage6() {
+            currentIndex6 = (currentIndex6 - 1 + images6.length) % images6.length;
+            updateMainImage6();
         }
     </script>
 
