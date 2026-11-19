@@ -379,6 +379,45 @@
                 Magnetism acts as an invisible and ruthless bridge: it allows the yellow to escape from the first panel, only to lead it to consume itself in the second. The diptych thus becomes the ultimate metaphor of SvrintART: the coexistence between the claustrophobic order of will and the wonderful, jarring anarchy of chance that consumes everything.
             </div>
         </div>
+             <!-- DIVISORE TRA LE OPERE -->
+        <hr style="border: 0; border-top: 1px solid #222; margin: 80px 0;">
+
+        <!-- OPERA 7: L'ORBITA DEI FLUSSI -->
+        <h1 class="artwork-title" id="orbita-flussi">SvrintART 04 – Orbit of Flows</h1>
+        <div class="artist-name">Code: SVR-04-2026</div>
+
+        <div class="main-image-container">
+            <img id="mainArt7" class="main-image" src="quadro09-a-fronte.jpg" alt="SvrintART 04 – Orbit of Flows">
+        </div>
+
+        <div class="nav-controls">
+            <button class="nav-arrow" onclick="prevImage7()">&#10094;</button>
+            <button class="nav-arrow" onclick="nextImage7()">&#10095;</button>
+        </div>
+
+        <div class="thumbnail-grid" id="grid7">
+            <img class="active" src="quadro09-a-fronte.jpg" alt="Front view" onclick="changeImage7(this)">
+            <img src="quadro09-ambiente1.jpg" alt="Setting view" onclick="changeImage7(this)">
+            <img src="quadro09-taglio1.jpg" alt="Perspective view 1" onclick="changeImage7(this)">
+            <img src="quadro09-taglio2.jpg" alt="Perspective view 2" onclick="changeImage7(this)">
+            <img src="quadro09-dettaglio1.jpg" alt="Texture detail 1" onclick="changeImage7(this)">
+            <img src="quadro09-dettaglio2.jpg" alt="Texture detail 2" onclick="changeImage7(this)">
+            <img src="quadro09-dettaglio3.jpg" alt="Texture detail 3" onclick="changeImage7(this)">
+        </div>
+
+        <div class="details-box">
+            <div class="specs">
+                <strong>Dimensions:</strong> 50 x 40 cm &nbsp;&nbsp;|&nbsp;&nbsp;
+                <strong>Technique:</strong> Acrylic on canvas (Mixed media &amp; magnetism) &nbsp;&nbsp;|&nbsp;&nbsp;
+                <strong>Year:</strong> 2026 &nbsp;&nbsp;|&nbsp;&nbsp;
+                <strong>Code:</strong> SVR-04-2026 &nbsp;&nbsp;|&nbsp;&nbsp;
+                <strong>Status:</strong> Available
+            </div>
+            <p style="margin-top: 0; font-weight: bold; color: #ffffff; letter-spacing: 1px;">CONCEPT:</p>
+            <div class="description-text">
+                In this fourth chapter, magnetism abandons the destructive angularity of the previous landscape to become an orbital dance—a hypnotic, fluctuating flow. Against a turquoise, liquid background reminiscent of a purified sky, the svrint is channeled within sinuous trajectories: golden filaments and wide white ribbons winding among concentric nuclei. These golden circles, scattered across the space like planets or constantly rotating cells, undergo the attraction and perturbation of magnetic waves. Along the edges, a thick, jagged dark frame bounds the chaos, holding the composition in a material embrace. The artwork does not seek stillness, but dynamic equilibrium: here, metallic noise does not tear, but smooths and accompanies color in a perpetual wave-like motion.
+            </div>
+        </div>
     <!-- LOGICA JAVASCRIPT -->
     <script>
         const images1 = Array.from(document.querySelectorAll('#grid1 img')).map(img => img.src);
@@ -557,6 +596,35 @@
         function prevImage6() {
             currentIndex6 = (currentIndex6 - 1 + images6.length) % images6.length;
             updateMainImage6();
+        }
+             // --- LOGICA GALLERIA 7 ---
+        const images7 = Array.from(document.querySelectorAll('#grid7 img')).map(img => img.src);
+        let currentIndex7 = 0;
+
+        function updateMainImage7() {
+            const mainImg = document.getElementById('mainArt7');
+            mainImg.src = images7[currentIndex7];
+            const thumbnails = document.querySelectorAll('#grid7 img');
+            thumbnails.forEach((img, index) => {
+                if (index === currentIndex7) img.classList.add('active');
+                else img.classList.remove('active');
+            });
+        }
+
+        function changeImage7(element) {
+            const thumbnails = Array.from(document.querySelectorAll('#grid7 img'));
+            currentIndex7 = thumbnails.indexOf(element);
+            updateMainImage7();
+        }
+
+        function nextImage7() {
+            currentIndex7 = (currentIndex7 + 1) % images7.length;
+            updateMainImage7();
+        }
+
+        function prevImage7() {
+            currentIndex7 = (currentIndex7 - 1 + images7.length) % images7.length;
+            updateMainImage7();
         }
     </script>
 
