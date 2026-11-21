@@ -411,6 +411,45 @@
                 In this fourth chapter, magnetism abandons the destructive angularity of the previous landscape to become an orbital dance—a hypnotic, fluctuating flow. Against a turquoise, liquid background reminiscent of a purified sky, the svrint is channeled within sinuous trajectories: golden filaments and wide white ribbons winding among concentric nuclei. These golden circles, scattered across the space like planets or constantly rotating cells, undergo the attraction and perturbation of magnetic waves. Along the edges, a thick, jagged dark frame bounds the chaos, holding the composition in a material embrace. The artwork does not seek stillness, but dynamic equilibrium: here, metallic noise does not tear, but smooths and accompanies color in a perpetual wave-like motion.
             </div>
         </div>
+              <!-- DIVISORE TRA LE OPERE -->
+        <hr style="border: 0; border-top: 1px solid #222; margin: 80px 0;">
+
+        <!-- OPERA 8: IL PERCORSO APPARENTE -->
+        <h1 class="artwork-title" id="percorso-apparente">SvrintART 06 – Il percorso apparente</h1>
+
+        <div class="main-image-container">
+            <img id="mainArt8" class="main-image" src="quadro08-a_fronte.jpg" alt="SvrintART 06 – Il percorso apparente">
+        </div>
+
+        <div class="nav-controls">
+            <button class="nav-arrow" onclick="prevImage8()">&#10094;</button>
+            <button class="nav-arrow" onclick="nextImage8()">&#10095;</button>
+        </div>
+
+        <div class="thumbnail-grid" id="grid8">
+            <img class="active" src="quadro08-a_fronte.jpg" alt="Front view" onclick="changeImage8(this)">
+            <img src="quadro08-ambiente1.jpeg" alt="Setting view" onclick="changeImage8(this)">
+            <img src="quadro08-taglio1.jpg" alt="Perspective view 1" onclick="changeImage8(this)">
+            <img src="quadro08-taglio2.jpg" alt="Perspective view 2" onclick="changeImage8(this)">
+            <img src="quadro08-detaglio1.jpg" alt="Texture detail 1" onclick="changeImage8(this)">
+            <img src="quadro08-detaglio2.jpg" alt="Texture detail 2" onclick="changeImage8(this)">
+            <img src="quadro08-detaglio3.jpg" alt="Texture detail 3" onclick="changeImage8(this)">
+            <img src="quadro08-detaglio4.jpg" alt="Texture detail 4" onclick="changeImage8(this)">
+        </div>
+
+        <div class="details-box">
+            <div class="specs">
+                <strong>Dimensions:</strong> 50 x 100 cm &nbsp;&nbsp;|&nbsp;&nbsp;
+                <strong>Technique:</strong> Acrylic on canvas (Mixed media) &nbsp;&nbsp;|&nbsp;&nbsp;
+                <strong>Year:</strong> 2026 &nbsp;&nbsp;|&nbsp;&nbsp;
+                <strong>Code:</strong> SVR-06-2026 &nbsp;&nbsp;|&nbsp;&nbsp;
+                <strong>Status:</strong> Available
+            </div>
+            <p style="margin-top: 0; font-weight: bold; color: #ffffff; letter-spacing: 1px;">CONCEPT:</p>
+            <div class="description-text">
+                Il percorso apparente è il tentativo illusorio di contenere e incanalare un flusso che, per sua natura, rifiuta ogni argine preimpostato. Così, la strada che alla fine prende forma, pur ricalcando il segno già tracciato, può svelare un contenuto diametralmente opposto al sentimento atteso. Il tutto sotto lo sguardo amebico del genitore sprovveduto.
+            </div>
+        </div>
     <!-- LOGICA JAVASCRIPT -->
     <script>
         const images1 = Array.from(document.querySelectorAll('#grid1 img')).map(img => img.src);
@@ -619,6 +658,35 @@
             currentIndex7 = (currentIndex7 - 1 + images7.length) % images7.length;
             updateMainImage7();
         }
+         // --- LOGICA GALLERIA 8 ---
+            const images8 = Array.from(document.querySelectorAll('#grid8 img')).map(img => img.src);
+            let currentIndex8 = 0;
+
+            function updateMainImage8() {
+                const mainImg = document.getElementById('mainArt8');
+                mainImg.src = images8[currentIndex8];
+                const thumbnails = document.querySelectorAll('#grid8 img');
+                thumbnails.forEach((img, index) => {
+                    if (index === currentIndex8) img.classList.add('active');
+                    else img.classList.remove('active');
+                });
+            }
+
+            function changeImage8(element) {
+                const thumbnails = Array.from(document.querySelectorAll('#grid8 img'));
+                currentIndex8 = thumbnails.indexOf(element);
+                updateMainImage8();
+            }
+
+            function nextImage8() {
+                currentIndex8 = (currentIndex8 + 1) % images8.length;
+                updateMainImage8();
+            }
+
+            function prevImage8() {
+                currentIndex8 = (currentIndex8 - 1 + images8.length) % images8.length;
+                updateMainImage8();
+            }
     </script>
 
         </div>
