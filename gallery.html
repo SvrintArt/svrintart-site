@@ -445,7 +445,53 @@
             <div class="description-text">
                 The apparent path is the illusory attempt to contain and channel a flow that, by its very nature, refuses any preset embankment. Thus, the road that eventually takes shape, while retracing the line already drawn, can unveil a content diametrically opposed to the expected feeling. All under the amoebic gaze of the unprepared parent.
             </div>
-      
+            </div>
+       <!-- DIVISORE TRA LE OPERE -->
+        <hr style="border: 0; border-top: 1px solid #222; margin: 80px 0;">
+
+        <!-- OPERA 9: SVRINTART 02 - À REBOURS -->
+        <h1 class="artwork-title" id="svrintart-02">SvrintART 02 – À rebours</h1>
+
+        <!-- IMMAGINE PRINCIPALE -->
+        <div class="main-image-container">
+            <img id="mainArt9" class="main-image" src="quadro10-a-fronte.jpg" alt="SvrintART 02 – À rebours">
+        </div>
+
+        <!-- PULSANTI DI SCORRIMENTO -->
+        <div class="nav-controls">
+            <div class="nav-arrow" onclick="prevImage9()">&#10094;</div>
+            <div class="nav-arrow" onclick="nextImage9()">&#10095;</div>
+        </div>
+
+        <!-- MINIATURE INTERATTIVE -->
+        <div class="thumbnail-grid" id="grid9">
+            <img class="active" src="quadro10-a-fronte.jpg" alt="Front view" onclick="changeImage9(this)">
+            <img src="quadro10-ambiente.png" alt="Setting view" onclick="changeImage9(this)">
+            <img src="quadro10-taglio1.jpg" alt="Perspective view 1" onclick="changeImage9(this)">
+            <img src="quadro10-taglio2.jpg" alt="Perspective view 2" onclick="changeImage9(this)">
+            <img src="quadro10-taglio3.jpg" alt="Perspective view 3" onclick="changeImage9(this)">
+            <img src="quadro10-dettaglio1.jpg" alt="Texture detail 1" onclick="changeImage9(this)">
+            <img src="quadro10-dettaglio2.jpg" alt="Texture detail 2" onclick="changeImage9(this)">
+            <img src="quadro10-dettaglio3.jpg" alt="Texture detail 3" onclick="changeImage9(this)">
+        </div>
+
+        <!-- DETTAGLI E TESTO CONCETTUALE -->
+        <div class="details-box">
+            <div class="specs">
+                <strong>Dimensions:</strong> 50 x 40 cm &nbsp;&nbsp;
+                <strong>Technique:</strong> Acrylic on canvas &nbsp;&nbsp;
+                <strong>Year:</strong> 2026 &nbsp;&nbsp;
+                <strong>Code:</strong> SVR-02-2026
+            </div>
+            <p style="margin-top: 0; font-weight: bold; color: #ffffff; letter-spacing: 1px;">CONCEPT:</p>
+            <div class="description-text">
+                Following in the wake of the first work, in this second piece of the series, form emerges from the struggle between intention, matter, and noise. The painting does not represent movement: it is its residue. A magnetic field cuts through the color, and the noise of the magnet—dragging the iron—carves into the pigment.
+                <br><br>
+                SvrintART rejects repeatable perfection, generating a painting where noise creates, magnetism alters, and chaos refines. Evoking Huysmans’ masterpiece, the philosophy of its protagonist Des Esseintes tells of a journey against the current, in a total rejection of nature in favor of purest artifice. Just as in the novel reality is distorted and artificially reconstructed through the senses and the intellect, on the canvas this process becomes pigment through the constraint of magnetism. The invisible iron does not follow the fluid, natural movement of the hand, but moves in abrupt pulls, forcing the acrylic matter.
+                <br><br>
+                The sinuous volutes and undulating flows artificially generate crimson trails, violet fumes, and tormented white flashes that echo the saturated atmospheres, artificial perfumes, and exotic colors dear to Huysmans’ decadence. Magnetism acts exactly like Des Esseintes’ mind: an underground, obsessive force that isolates the event from the outside world, forcing the color to coil into neurotic spirals. The volutes do not seek the harmony of nature, but celebrate the triumph of strident artifice, freezing on canvas the trajectory of an aesthetic rebellion that inevitably moves against the grain.
+            </div>
+        </div>
         </div>
     <!-- LOGICA JAVASCRIPT -->
     <script>
@@ -684,6 +730,35 @@
                 currentIndex8 = (currentIndex8 - 1 + images8.length) % images8.length;
                 updateMainImage8();
             }
+              // --- LOGICA GALLERIA 9 ---
+        const images9 = Array.from(document.querySelectorAll('#grid9 img')).map(img => img.src);
+        let currentIndex9 = 0;
+
+        function updateMainImage9() {
+            const mainImg = document.getElementById('mainArt9');
+            mainImg.src = images9[currentIndex9];
+            const thumbnails = document.querySelectorAll('#grid9 img');
+            thumbnails.forEach((img, index) => {
+                if (index === currentIndex9) img.classList.add('active');
+                else img.classList.remove('active');
+            });
+        }
+
+        function changeImage9(element) {
+            const thumbnails = Array.from(document.querySelectorAll('#grid9 img'));
+            currentIndex9 = thumbnails.indexOf(element);
+            updateMainImage9();
+        }
+
+        function nextImage9() {
+            currentIndex9 = (currentIndex9 + 1) % images9.length;
+            updateMainImage9();
+        }
+
+        function prevImage9() {
+            currentIndex9 = (currentIndex9 - 1 + images9.length) % images9.length;
+            updateMainImage9();
+        }
     </script>
 
         </div>
